@@ -1,4 +1,3 @@
-
 import tensorflow as tf
 from model.yolov4_tiny import Yolov4_tiny
 from model.yolov4 import Yolov4
@@ -133,7 +132,7 @@ def main(args):
                     cur_num_classes = int(args.num_classes)
                     args.num_classes = 80
                     pretrain_model = Yolov4_tiny(args, training=True)
-                    pretrain_model.load_weights(args.tiny_coco_pretrained_weights).expect_partial()
+#                     pretrain_model.load_weights(args.tiny_coco_pretrained_weights).expect_partial()
                     for layer in model.layers:
                         if not layer.get_weights():
                             continue
@@ -155,7 +154,7 @@ def main(args):
                     cur_num_classes = int(args.num_classes)
                     args.num_classes = 80
                     pretrain_model = Yolov4(args, training=True)
-                    pretrain_model.load_weights(args.p5_coco_pretrained_weights).expect_partial()
+#                     pretrain_model.load_weights(args.p5_coco_pretrained_weights).expect_partial()
                     for layer in model.layers:
                         if not layer.get_weights():
                             continue
@@ -179,7 +178,7 @@ def main(args):
                     cur_num_classes = int(args.num_classes)
                     args.num_classes = 80
                     pretrain_model = Yolov4(args, training=True)
-                    pretrain_model.load_weights(args.p6_coco_pretrained_weights).expect_partial()
+#                     pretrain_model.load_weights(args.p6_coco_pretrained_weights).expect_partial()
                     for layer in model.layers:
                         if not layer.get_weights():
                             continue
@@ -253,10 +252,6 @@ def main(args):
             epoch_start_time = time.perf_counter()
             train_loss = 0
             train_generator_tqdm = tqdm(enumerate(train_generator), total=len(train_generator))
-
-
-
-
 
             if args.optimizer.startswith('SAM'):
                 for batch_index, (batch_imgs, batch_labels) in train_generator_tqdm:
