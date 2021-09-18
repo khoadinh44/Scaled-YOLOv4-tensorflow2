@@ -290,7 +290,7 @@ def main(args):
 
                     train_loss += total_loss
                     train_generator_tqdm.set_description(
-                        "epoch:{}/{},train_loss:{:.4f},lr:{:.6f}".format(epoch, args.epochs,
+                        "epoch:{}/{},\ttrain_loss:{:.4f},\tlr:{:.6f}".format(epoch, args.epochs,
                                                                          train_loss / (batch_index + 1),
                                                                          optimizer.learning_rate.numpy()))
                     if args.ema:
@@ -315,7 +315,7 @@ def main(args):
                         accumulate_index = 0
                     train_loss += total_loss
                     train_generator_tqdm.set_description(
-                        "epoch:{}/{},train_loss:{:.4f},lr:{:.6f}".format(epoch, args.epochs,
+                        "epoch:{}/{},\ttrain_loss:{:.4f},\tlr:{:.6f}".format(epoch, args.epochs,
                                                                                          train_loss/(batch_index+1),
                                                                                          optimizer.learning_rate.numpy()))
                     if args.ema:
